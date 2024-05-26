@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	background: #000;
+}
+.wrapper {
+	overflow: hidden;
+	background: #000;
+}
+.boxes {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}
+.particle {
+	position: fixed;
+	width: 10px;
+	height: 10px;
+	background-color: deepskyblue;
+	animation: moveParticle linear infinite;
+	pointer-events: none;
+}
+@keyframes moveParticle {
+	0% {
+		transform: translateY(0) translateX(0);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(-100vh) translateX(calc(-100vw + 100%));
+		opacity: 0;
+	}
+}
+
+
+
+
+
+.logo {
+    position: fixed;
+    top: 20px; /* Adjusted for vertical alignment */
+    right: 20px; /* Adjusted for alignment */
+    width: 40px;
+    height: 38px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.user-info {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.user-info img {
+    width: 40px; /* Adjust size as needed */
+    height: 40px; /* Adjust size as needed */
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-info .username {
+    color: #333;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+
+.logo {
+    position: fixed;
+    top: 20px; /* Adjusted for vertical alignment */
+    right: 20px; /* Adjusted for alignment */
+    width: 40px;
+    height: 38px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.settings:hover .menu {
+    display: block;
+}
+.user-info {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.user-info img {
+    width: 40px; /* Adjust size as needed */
+    height: 40px; /* Adjust size as needed */
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-info .username {
+    color: #fffdfd;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+
+@property --rotate {
+    syntax: "<angle>"; /* تحديد البيانات الأساسية للمتغير العام */
+    initial-value: 132deg; /* تعيين القيمة الابتدائية للمتغير */
+    inherits: false; /* تحديد ما إذا كان المتغير يرث قيمته من العناصر الفرعية */
+  }
+
+  :root {
+    --card-height: 65vh; /* تعريف المتغيرات العامة لارتفاع البطاقة */
+    --card-width: calc(var(--card-height) / 1.5); /* تعريف المتغيرات العامة لعرض البطاقة */
+  }
+
+  body {
+    min-height: 100vh; /* تحديد الارتفاع الأدنى للجسم بنسبة للعرض الرأسي للشاشة */
+    display: flex; /* تعيين عرض المربع إلى Flex */
+    align-items: center; /* محاذاة المحتوى إلى الوسط عمودياً */
+    flex-direction: column; /* تعيين اتجاه المربع إلى عمودي */
+    padding-top: 2rem; /* تعيين هامش علوي */
+    padding-bottom: 2rem; /* تعيين هامش سفلي */
+    box-sizing: border-box; /* تضمين الهوامش والحدود في الأبعاد الإجمالية */
+  }
+
+  .card1,
+  .card2,
+  .card3 {
+    background: #191c29; /* تحديد لون خلفية البطاقة */
+    width: var(--card-width); /* استخدام المتغير لتحديد عرض البطاقة */
+    height: var(--card-height); /* استخدام المتغير لتحديد ارتفاع البطاقة */
+    padding: 3px; /* تعيين الهوامش الداخلية للبطاقة */
+    position: relative; /* تحديد الوضع النسبي للبطاقة */
+    border-radius: 6px; /* تعيين شكل الزوايا للبطاقة */
+    justify-content: center; /* محاذاة المحتوى في الوسط أفقياً */
+    align-items: center; /* محاذاة المحتوى في الوسط رأسياً */
+    text-align: center; /* محاذاة النص إلى الوسط أفقياً */
+    display: flex; /* تعيين عرض المربع إلى Flex */
+    font-size: 1.5em; /* تحديد حجم الخط */
+    color: rgb(88 199 250 / 0%); /* تحديد لون النص مع شفافية */
+    cursor: pointer; /* تحديد نوع المؤشر عند التحويم */
+    font-family: cursive; /* تحديد نوع الخط */
+  }
+
+  .card1:hover,
+  .card2:hover ,
+  .card3:hover  {
+    color: rgb(88 199 250 / 100%); /* تغيير لون النص عند التحويم */
+    transition: color 1s; /* تحديد مدة ونمط الانتقال */
+    top: 30%;
+  }
+
+  .card1:hover:before, .card1:hover:after ,
+  .card2:hover:before, .card2:hover:after,
+  .card3:hover:before, .card3:hover:after{
+    animation: none; /* إلغاء الرسوم المتحركة عند التحويم */
+    opacity: 0; /* جعل الشفافية 0 عند التحويم */
+  }
+
+  .card1::before,
+  .card2::before,
+  .card3::before {
+    content: ""; /* إضافة محتوى فارغ قبل البطاقة */
+    width: 104%; /* تحديد العرض بنسبة مئوية */
+    height: 102%; /* تحديد الارتفاع بنسبة مئوية */
+    border-radius: 8px; /* تعيين شكل الزوايا */
+    background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2); /* تحديد تدرج الألوان */
+    position: absolute; /* تحديد الوضع المطلق */
+    z-index: -1; /* تحديد ترتيب الطبقات */
+    top: -1%; /* تعيين الوضع العلوي */
+    left: -2%; /* تعيين الوضع الأيسر */
+    animation: spin 2.5s linear infinite; /* تحديد الرسوم المتحركة */
+  }
+
+  .card1::after,
+  .card2::after ,
+  .card3::after{
+    position: absolute; /* تحديد الوضع المطلق */
+    content: ""; /* إضافة محتوى فارغ بعد البطاقة */
+    top: calc(var(--card-height) / 6); /* تحديد الوضع العلوي بنسبة مئوية */
+    left: 0; /* تحديد الوضع الأيسر */
+    right: 0; /* تحديد الوضع الأيمن */
+    z-index: -1; /* تحديد ترتيب الطبقات */
+    height: 100%; /* تحديد الارتفاع */
+    width: 100%; /* تحديد العرض */
+    margin: 0 auto; /* تحديد الهوامش بالتوازي وبنسبة مئوية */
+    transform: scale(0.8); /* تحديد مقياس العنصر */
+    filter: blur(calc(var(--card-height) / 6)); /* تعيين التمويه */
+    background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2); /* تحديد تدرج الألوان */
+    opacity: 1; /* تعيين الشفافية */
+    transition: opacity .5s; /* تحديد مدة ونمط الانتقال */
+    animation: spin 2.5s linear infinite; /* تحديد الرسوم المتحركة */
+  }
+
+  @keyframes spin {
+    0% {
+      --rotate: 0deg; /* تحديد بداية الدوران */
+    }
+    100% {
+      --rotate: 360deg; /* تحديد نهاية الدوران */
+    }
+  }
+
+  a {
+    color: #212534; /* تحديد لون الروابط */
+    text-decoration: none; /* إزالة تزيين الروابط */
+    font-family: sans-serif; /* تحديد نوع الخط */
+    font-weight: bold; /* تحديد وزن الخط */
+    margin-top: 2rem; /* تعيين الهوامش العلوية */
+  }
+
+  .card1,
+  .card2,
+  .card3{
+    top:20%;
+  }
+
+
+
+.card1 img ,
+.card2 img,
+.card3 img{
+  max-width: 90%; /* تعيين الحد الأقصى لعرض الصورة */
+  max-height:90%; /* تعيين الحد الأقصى لارتفاع الصورة */
+  border-radius: 20px; /* زاوية التدوير للصورة */
+  margin-bottom: 60px; /* التباعد السفلي بين الصورة والنص */
+}
+.card1,
+.card2,
+.card3{
+  display: flex; /* استخدام نموذج مرن */
+  flex-direction: column; /* ترتيب العناصر باتجاه عمودي */
+  align-items: center; /* توسيط العناصر في المحور الرأسي */
+}
+
+
+.card1 {
+  background: #191c29;
+  width: var(--card-width);
+  height: var(--card-height);
+
+  position: absolute;
+
+  left: 5%; /* تحديد الموقع الأفقي للبطاقة الأولى */
+}
+
+.card2 {
+  background: #191c29;
+  width: var(--card-width);
+  height: var(--card-height);
+  position: absolute;
+  left: 38%; /* تحديد الموقع الأفقي للبطاقة الثانية */
+
+}
+
+.card3 {
+
+  width: var(--card-width);
+  height: var(--card-height);
+  position: absolute;
+  left: 70%; /* تحديد الموقع الأفقي للبطاقة الثالثة */
+
+}
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="sp4,2.css">
+    
+</head>
+<body>
+    <div class="user-info">
+        <img src="path/to/user-image.jpg" alt="User Image">
+        <span class="username" sec:authentication="principal.username">John Doe</span>
+    </div>
+    <div class="logo">
+        <img src="/Users/moayadzho/Desktop/logo.png" alt="Logo">
+    </div>
+
+    <header>
+        <a href="/" th:href="@{/a4}">
+            <div class="card1">
+                <img src="" >
+                <h3>Magic Card</h3>
+            </div>
+        </a>
+
+        <a href="/" th:href="@{/b4}">
+            <div class="card2">
+                <img src="" >
+                <h3>Magic Card</h3>
+            </div>
+
+            <a href="/" th:href="@{/c4}">
+                <div class="card3">
+                    <img src="" >
+                    <h3>Magic Card</h3>
+                </div>
+
+
+
+    </header>
+</body>
+</html>

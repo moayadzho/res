@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration and Login App</title>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+<body>
+	 create navigation bar ( header)
+<!--	<nav class="navbar navbar-inverse navbar-fixed-top">-->
+<!--		<div class="container">-->
+
+<!--			<div id="navbar" class="collapse navbar-collapse">-->
+<!--				<ul class="nav navbar-nav">-->
+<!--					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>-->
+<!--				</ul>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--	</nav>-->
+
+
+
+<!--	<div class="container">-->
+<!--		<span sec:authentication="principal.username"> User</span>-->
+<!--	</div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div class="wrapper">
+		<div class="boxes"></div>
+	</div>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+        const particleContainer = document.querySelector('.boxes');
+
+        const createParticle = () => {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.top = Math.random() * window.innerHeight + 'px';
+            particle.style.animationDuration = Math.random() * 2 + 1 + 's';
+            particleContainer.appendChild(particle);
+
+            particle.addEventListener('animationend', () => {
+            particle.remove();
+            });
+        };
+
+        const spawnParticles = () => {
+            setInterval(createParticle, 500);
+        };
+
+        spawnParticles();
+        });
+	</script>
+	<main>
+		<div class="user-info">
+			<style>
+				.box {
+                    width: 200px;
+                    background-color: #f0f0f0;
+                    border: 1px solid #ccc;
+                    padding: 20px;
+                    position: absolute;
+                    top: 500%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    border-radius: 10px;
+                }
+
+                .hidden {
+                    display: none;
+                }
+
+                .content {
+                    text-align: center;
+                }
+
+                .logout-button {
+                    width: 100%;
+                    height: 40px;
+                    background-color: #fff;
+                    color: #ff5555; /* ????? ??? ???? ?????? */
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease, color 0.3s ease; /* ????? ??? ???? ?????? */
+                }
+
+                .logout-button:hover {
+                    background-color: #ff5555; /* ????? ??? ??????? ?????? ??? ??????? */
+                    color: #fff; /* ????? ??? ???? ?????? ??? ??????? */
+                }
+
+                .image {
+                    cursor: pointer;
+                }
+
+			</style>
+			</head>
+			<body>
+
+			<!-- ?????? ???? ??? ????? ????? ???? ??????? -->
+			<img src="image.jpg" id="toggleImage" class="image" onclick="toggleBox()">
+
+			<!-- ?????? ???? ???? ?????? ??? ????? -->
+			<div id="toggleBox" class="box hidden">
+				<nav class="navbar navbar-inverse navbar-fixed-top">
+					<div class="container">
+						<div id="navbar" class="collapse navbar-collapse">
+							<ul class="nav navbar-nav">
+								<li sec:authorize="isAuthenticated()">
+									<a th:href="@{/logout}" class="logout-button">log out </a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+			</div>
+
+			<script>
+				// ????? ???? ??????? ??????
+                function toggleBox() {
+                    var box = document.getElementById("toggleBox");
+                    box.classList.toggle("hidden");
+                    // ????? ??????? ?????? ??? ????
+                    toggleColor();
+                }
+
+                // ????? ??? ????
+                function toggleColor() {
+                    var button = document.querySelector(".logout-button");
+                    button.classList.toggle("red");
+                }
+			</script>
+			<span class="username" sec:authentication="principal.username">John Doe</span>
+		</div>
+		<div class="logo">
+			<img src="/Users/moayadzho/Desktop/logo.png" alt="Logo">
+		</div>
+		<div class="settings">
+			<a href="/" th:href="@{/customer}"><i class="fa fa-bullhorn" aria-hidden="true"></i>   </a>
+
+		</div>
+		<form action="">
+			<input type="search" placeholder="Search here ...">
+			<i class="fa fa-search"></i>
+		</form>
+		</header>
+		<main>
+			<a href="/" th:href="@{/page1}">
+				<div class="card1">
+					<img src="#" >
+					<h3>Magic Card</h3>
+				</div>
+			</a>
+
+			<script>
+				// Function to navigate to a specific page
+                function goToPage(page) {
+                    // Redirect to the specified page
+                    window.location.href = page;
+                }
+			</script>
+
+			<a href="/" th:href="@{/page2}">
+				<div class="card2">
+					<img src="#" >
+					<h3>Magic Card</h3>
+				</div>
+			</a>
+
+			<a href="/" th:href="@{/page3}">
+				<div class="card3">
+					<img src="#" >
+					<h3>Magic Card</h3>
+				</div>
+			</a>
+
+			<a href="/" th:href="@{/page4}">
+				<div class="card4">
+					<img src="#" >
+					<h3>Magic Card</h3>
+				</div>
+			</a>
+
+			<a href="/" th:href="@{/page5}">
+				<div class="card5">
+					<img src="#" >
+					<h3>Magic Card</h3>
+				</div>
+			</a>
+			<a href="/" th:href="@{/page6}">
+				<div class="card6">
+					<img src="#" >
+					<h3>Magic Card</h3>
+				</div>
+			</a>
+		</main>
+		<footer class="footer">
+			<div class="waves">
+				<div class="wave" id="wave1"></div>
+				<div class="wave" id="wave2"></div>
+				<div class="wave" id="wave3"></div>
+				<div class="wave" id="wave4"></div>
+			</div>
+
+		</footer>
+		<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+		<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+		<style>
+			form {
+        position: fixed;
+        top: 18px; /* Adjusted for vertical alignment */
+        right: 190px; /* Adjusted for alignment */
+        transition: all 1s;
+        width: 50px;
+        height: 50px;
+        background: white;
+        box-sizing: border-box;
+        border-radius: 25px;
+        border: 4px solid white;
+        padding: 5px;
+    }
+
+    input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 42.5px;
+        line-height: 30px;
+        outline: 0;
+        border: 0;
+        display: none;
+        font-size: 1em;
+        border-radius: 20px;
+        padding: 0 20px;
+    }
+
+    .fa {
+        box-sizing: border-box;
+        padding: 10px;
+        width: 42.5px;
+        height: 42.5px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-radius: 50%;
+        color: #6132bd;
+        text-align: center;
+        font-size: 1.2em;
+        transition: all 1s;
+    }
+
+    form:hover {
+        width: 300px;
+        cursor: pointer;
+    }
+
+    form:hover input {
+        display: block;
+    }
+
+    form:hover .fa {
+        background: #8c52ff;
+        color: white;
+    }
+
+    .logo {
+        position: fixed;
+        top: 20px; /* Adjusted for vertical alignment */
+        right: 20px; /* Adjusted for alignment */
+        width: 40px;
+        height: 38px;
+        border-radius: 100%;
+        overflow: hidden;
+        z-index: 3;
+    }
+
+    .logo img {
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+    }
+
+    .settings {
+        position: fixed;
+        top: 20px; /* Adjusted for vertical alignment */
+        right: 120px; /* Adjusted for alignment */
+        z-index: 3;
+    }
+
+    .menu {
+        display: none;
+        position: absolute;
+        top: 40px;
+        right: 10px;
+        background-color: #f8f8f8;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    .settings:hover .menu {
+        display: block;
+    }
+    .user-info {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        display: flex;
+        align-items: center;
+        z-index: 3;
+    }
+
+    .user-info img {
+        width: 40px; /* Adjust size as needed */
+        height: 40px; /* Adjust size as needed */
+        border-radius: 50%;
+        margin-right: 10px;
+        z-index: 3;
+    }
+
+    .user-info .username {
+        color: #f4f3f3;
+        font-weight: bold;
+        font-size: 1.1em;
+        z-index: 3;
+    }
+    form {
+        position: fixed;
+        top: 18px; /* Adjusted for vertical alignment */
+        right: 190px; /* Adjusted for alignment */
+        transition: all 1s;
+        width: 50px;
+        height: 50px;
+        background: white;
+        box-sizing: border-box;
+        border-radius: 25px;
+        border: 4px solid white;
+        padding: 5px;
+        z-index: 3;
+    }
+
+    input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 42.5px;
+        line-height: 30px;
+        outline: 0;
+        border: 0;
+        display: none;
+        font-size: 1em;
+        border-radius: 20px;
+        padding: 0 20px;
+    }
+
+    .fa {
+        box-sizing: border-box;
+        padding: 10px;
+        width: 42.5px;
+        height: 42.5px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-radius: 50%;
+        color: #422f67;
+        text-align: center;
+        font-size: 1.2em;
+        transition: all 1s;
+
+    }
+
+    form:hover {
+        width: 300px;
+        cursor: pointer;
+    }
+
+    form:hover input {
+        display: block;
+    }
+
+    form:hover .fa {
+        background: #220360;
+        color: white;
+    }
+
+    .logo {
+        position: fixed;
+        top: 20px; /* Adjusted for vertical alignment */
+        right: 20px; /* Adjusted for alignment */
+        width: 40px;
+        height: 38px;
+        border-radius: 100%;
+        overflow: hidden;
+    }
+
+    .logo img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .settings {
+        position: fixed;
+        top: 20px; /* Adjusted for vertical alignment */
+        right: 120px; /* Adjusted for alignment */
+    }
+
+    .menu {
+        display: none;
+        position: absolute;
+        top: 40px;
+        right: 10px;
+        background-color: #e9e9e9;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    /* Style for the buttons */
+    button.animated-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin: 10px auto; /* Adjust margin as needed */
+        width: 30%; /* Adjust width to fit the screen */
+        height: 30vh; /* Set height as a percentage of viewport height */
+        background: white;
+        border-radius: 10%; /* Adjust border radius */
+        font-family: 'Montserrat', sans-serif;
+        font-size: 20px;
+        font-weight: lighter;
+        letter-spacing: 2px;
+        transition: 1s box-shadow;
+    }
+
+    /* Styling for the main container */
+    main {
+        display: flex;
+        flex-wrap: wrap; /* Enable wrapping */
+        justify-content: center;
+        align-items: center; /* Center items vertically */
+        height: 100vh; /* Make the content fill the screen */
+    }
+
+    /* Animation for button hover */
+    button.animated-button:hover {
+        box-shadow: 0 5px 35px 0px rgba(0,0,0,.1);
+    }
+
+    /* Animation for button hover - before pseudo-element */
+    button.animated-button:hover::before {
+        display: block;
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #b373e4dd;
+        border-radius: 10%;
+        z-index: -3;
+        animation: 1s clockwise infinite;
+    }
+
+    /* Animation for button hover - after pseudo-element */
+    button.animated-button:hover:after {
+        display: block;
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #bb16bbb8; /* Adjust color as needed */
+        border-radius: 10%;
+        z-index: -3;
+        animation: 2s counterclockwise infinite;
+    }
+
+    /* Keyframes for clockwise animation */
+    @keyframes clockwise {
+        0% {
+            top: -5px;
+            left: 0;
+        }
+        /* Define other keyframe percentages */
+    }
+
+    /* Keyframes for counterclockwise animation */
+    @keyframes counterclockwise {
+        0% {
+            top: -5px;
+            right: 0;
+        }
+        /* Define other keyframe percentages */
+    }
+    button.animated-button {
+        position: relative; /* ???? ???? ?????? ?????? ????? ????? ???? ?????? ??????? ?? */
+    }
+
+    button.animated-button img {
+        width: 72%; /* ????? ??? ?????? */
+        height: 72%; /* ????? ?????? ?????? */
+        position: absolute; /* ???? ?????? ?????? ?????? ???? ???? */
+        top: 10%; /* ??? ?????? ?? ????? ?????? ?? ???? */
+        left: 50%; /* ??? ?????? ?? ??????? ?????? */
+        transform: translateX(-50%); /* ???? ?????? ?????? ?????? ??????? ??????? */
+       border-radius: 30px;
+    }
+    /* Disable pointer events for span inside buttons */
+    button.animated-button span {
+        pointer-events: none;
+        position: absolute; /* ??? ?????? ?????? ?????? ???? ???? */
+        top: 89%; /* ??? ?????? ?? ????? ?????? ???? ?????? */
+        left: 50%; /* ??? ?????? ?? ????? ?????? ???? ????????? */
+        transform: translate(-50%, -50%); /* ??? ?????? ??? ??????? */
+    }
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        background: #000;
+    }
+    .wrapper {
+        overflow: hidden;
+        background: #000;
+    }
+
+    .boxes {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+    .particle {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        background-color: deepskyblue;
+        animation: moveParticle linear infinite;
+        pointer-events: none;
+    }
+    @keyframes moveParticle {
+        0% {
+            transform: translateY(0) translateX(0);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-100vh) translateX(calc(-100vw + 100%));
+            opacity: 0;
+        }
+    }
+    @keyframes clockwise {
+        0% {
+          top: -5px;
+          left: 0;
+        }
+        12% {
+          top: -2px;
+          left: 2px;
+        }
+        25% {
+          top: 0;
+          left: 5px;
+        }
+        37% {
+          top: 2px;
+          left: 2px;
+        }
+        50% {
+          top: 5px;
+          left: 0;
+        }
+        62% {
+          top: 2px;
+          left: -2px;
+        }
+        75% {
+          top: 0;
+          left: -5px;
+        }
+        87% {
+          top: -2px;
+          left: -2px;
+        }
+        100% {
+          top: -5px;
+          left: 0;
+        }
+      }
+
+      @keyframes counterclockwise {
+        0% {
+          top: -5px;
+          right: 0;
+        }
+        12% {
+          top: -2px;
+          right: 2px;
+        }
+        25% {
+          top: 0;
+          right: 5px;
+        }
+        37% {
+          top: 2px;
+          right: 2px;
+        }
+        50% {
+          top: 5px;
+          right: 0;
+        }
+        62% {
+          top: 2px;
+          right: -2px;
+        }
+        75% {
+          top: 0;
+          right: -5px;
+        }
+        87% {
+          top: -2px;
+          right: -2px;
+        }
+        100% {
+          top: -5px;
+          right: 0;
+        }
+      }
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+
+.footer {
+  position: relative;
+  width: 100%;
+  background: #3586ff;
+  min-height: 550px;
+  padding: 20px 50px;
+  z-index: -10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  top: 150%;
+}
+
+
+
+.social-icon__link:hover {
+  transform: translateY(-10px);
+}
+
+.menu__link:hover {
+  opacity: 1;
+}
+
+.footer p {
+  color: #fff;
+  margin: 15px 0 10px 0;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url("https://i.ibb.co/wQZVxxk/wave.png");
+  background-size: 1000px 100px;
+}
+
+
+.wave#wave1 {
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWaves 4s linear infinite;
+}
+
+
+.wave#wave2 {
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animate 4s linear infinite !important;
+}
+
+
+.wave#wave3 {
+  z-index: 1000;
+  opacity: 0.2;
+  bottom: 15px;
+  animation: animateWaves 3s linear infinite;
+}
+
+
+.wave#wave4 {
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animate 3s linear infinite;
+}
+
+@keyframes animateWaves {
+  0% {
+    background-position-x: 1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: -1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+@property --rotate {
+    syntax: "<angle>"; /* ????? ???????? ???????? ??????? ????? */
+    initial-value: 132deg; /* ????? ?????? ?????????? ??????? */
+    inherits: false; /* ????? ?? ??? ??? ??????? ??? ????? ?? ??????? ??????? */
+  }
+
+  :root {
+    --card-height: 65vh; /* ????? ????????? ?????? ??????? ??????? */
+    --card-width: calc(var(--card-height) / 1.5); /* ????? ????????? ?????? ???? ??????? */
+
+  }
+
+
+
+  .card1,
+  .card2,
+  .card3 ,
+  .card4,
+  .card5,
+  .card6{
+    background: #191c29; /* ????? ??? ????? ??????? */
+    width: var(--card-width); /* ??????? ??????? ?????? ??? ??????? */
+    height: var(--card-height); /* ??????? ??????? ?????? ?????? ??????? */
+    padding: 3px; /* ????? ??????? ???????? ??????? */
+    position: relative; /* ????? ????? ?????? ??????? */
+    border-radius: 6px; /* ????? ??? ??????? ??????? */
+    justify-content: center; /* ?????? ??????? ?? ????? ?????? */
+    align-items: center; /* ?????? ??????? ?? ????? ?????? */
+    text-align: center; /* ?????? ???? ??? ????? ?????? */
+    display: flex; /* ????? ??? ?????? ??? Flex */
+    font-size: 1.5em; /* ????? ??? ???? */
+    color: rgb(88 199 250 / 0%); /* ????? ??? ???? ?? ?????? */
+    cursor: pointer; /* ????? ??? ?????? ??? ??????? */
+    font-family: cursive; /* ????? ??? ???? */
+  }
+
+  .card1:hover,
+  .card2:hover ,
+  .card3:hover ,
+  .card4:hover,
+  .card5:hover ,
+  .card6:hover  {
+    color: rgb(88 199 250 / 100%); /* ????? ??? ???? ??? ??????? */
+    transition: color 1s; /* ????? ??? ???? ???????? */
+
+  }
+
+  .card1:hover:before, .card1:hover:after ,
+  .card2:hover:before, .card2:hover:after,
+  .card3:hover:before, .card3:hover:after,
+  .card4:hover:before, .card4:hover:after ,
+  .card5:hover:before, .card5:hover:after,
+  .card6:hover:before, .card6:hover:after{
+    animation: none; /* ????? ?????? ???????? ??? ??????? */
+    opacity: 0; /* ??? ???????? 0 ??? ??????? */
+  }
+
+  .card1::before,
+  .card2::before,
+  .card3::before,
+  .card4::before,
+  .card5::before,
+  .card6::before{
+    content: ""; /* ????? ????? ???? ??? ??????? */
+    width: 104%; /* ????? ????? ????? ????? */
+    height: 102%; /* ????? ???????? ????? ????? */
+    border-radius: 8px; /* ????? ??? ??????? */
+    background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2); /* ????? ???? ??????? */
+    position: absolute; /* ????? ????? ?????? */
+    z-index: -1; /* ????? ????? ??????? */
+    top: -1%; /* ????? ????? ?????? */
+    left: -2%; /* ????? ????? ?????? */
+    animation: spin 2.5s linear infinite; /* ????? ?????? ???????? */
+  }
+
+  .card1::after,
+  .card2::after ,
+  .card3::after,
+  .card4::after,
+  .card5::after ,
+  .card5::after{
+    position: absolute; /* ????? ????? ?????? */
+    content: ""; /* ????? ????? ???? ??? ??????? */
+    top: calc(var(--card-height) / 6); /* ????? ????? ?????? ????? ????? */
+    left: 0; /* ????? ????? ?????? */
+    right: 0; /* ????? ????? ?????? */
+    z-index: -1; /* ????? ????? ??????? */
+    height: 100%; /* ????? ???????? */
+    width: 100%; /* ????? ????? */
+    margin: 0 auto; /* ????? ??????? ???????? ?????? ????? */
+    transform: scale(0.8); /* ????? ????? ?????? */
+    filter: blur(calc(var(--card-height) / 6)); /* ????? ??????? */
+    background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2); /* ????? ???? ??????? */
+    opacity: 1; /* ????? ???????? */
+    transition: opacity .5s; /* ????? ??? ???? ???????? */
+    animation: spin 2.5s linear infinite; /* ????? ?????? ???????? */
+  }
+
+  @keyframes spin {
+    0% {
+      --rotate: 0deg; /* ????? ????? ??????? */
+    }
+    100% {
+      --rotate: 360deg; /* ????? ????? ??????? */
+    }
+  }
+
+.card1 img ,
+.card2 img,
+.card3 img,
+.card4 img ,
+.card5 img,
+.card6 img{
+  max-width: 90%; /* ????? ???? ?????? ???? ?????? */
+  max-height:90%; /* ????? ???? ?????? ??????? ?????? */
+  border-radius: 20px; /* ????? ??????? ?????? */
+  margin-bottom: 60px; /* ??????? ?????? ??? ?????? ????? */
+}
+.card1,
+.card2,
+.card3,
+.card4,
+.card5,
+.card6{
+  display: flex; /* ??????? ????? ??? */
+  flex-direction: column; /* ????? ??????? ?????? ????? */
+  align-items: center; /* ????? ??????? ?? ?????? ?????? */
+}
+
+.card1 {
+    background: #191c29;
+    width: var(--card-width);
+    height: var(--card-height);
+
+    position: absolute;
+
+    left: 5%; /* ????? ?????? ?????? ??????? ?????? */
+    top: 20%;
+  }
+
+
+
+
+  .card2 {
+    background: #191c29;
+    width: var(--card-width);
+    height: var(--card-height);
+    position: absolute;
+    left: 38%; /* ????? ?????? ?????? ??????? ??????? */
+    top: 20%;
+  }
+
+  .card3 {
+
+    width: var(--card-width);
+    height: var(--card-height);
+    position: absolute;
+    left: 70%; /* ????? ?????? ?????? ??????? ??????? */
+    top: 20%;
+  }
+
+  .card4 {
+    background: #191c29;
+    width: var(--card-width);
+    height: var(--card-height);
+
+    position: absolute;
+
+    left: 5%; /* ????? ?????? ?????? ??????? ?????? */
+    top: 100%;
+  }
+
+  .card5{
+    background: #191c29;
+    width: var(--card-width);
+    height: var(--card-height);
+    position: absolute;
+    left: 38%; /* ????? ?????? ?????? ??????? ??????? */
+    top: 100%;
+
+  }
+
+  .card6 {
+
+    width: var(--card-width);
+    height: var(--card-height);
+    position: absolute;
+    left: 70%; /* ????? ?????? ?????? ??????? ??????? */
+    top: 100%;
+  }
+
+
+		</style>
+
+</body>
+</html>

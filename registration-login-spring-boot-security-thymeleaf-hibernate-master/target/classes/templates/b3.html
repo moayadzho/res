@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      .logo {
+        position: fixed;
+        top: 20px; /* Adjusted for vertical alignment */
+        right: 20px; /* Adjusted for alignment */
+        width: 40px;
+        height: 38px;
+        border-radius: 100%;
+        overflow: hidden;
+        z-index: 3;
+    }
+    
+    .logo img {
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+    }
+    
+    
+    
+    .user-info {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        display: flex;
+        align-items: center;
+        z-index: 3;
+    }
+    
+    .user-info img {
+        width: 40px; /* Adjust size as needed */
+        height: 40px; /* Adjust size as needed */
+        border-radius: 50%;
+        margin-right: 10px;
+        z-index: 3;
+    }
+    
+    .user-info .username {
+        color: #f4f3f3;
+        font-weight: bold;
+        font-size: 1.1em;
+        z-index: 3;
+    }
+    
+    
+    
+    .logo {
+        position: fixed;
+        top: 20px; /* Adjusted for vertical alignment */
+        right: 20px; /* Adjusted for alignment */
+        width: 40px;
+        height: 38px;
+        border-radius: 100%;
+        overflow: hidden;
+    }
+    
+    .logo img {
+        width: 100%;
+        height: 100%;
+    }
+    
+      
+    
+    
+    
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: #000;
+    }
+    .wrapper {
+      overflow: hidden;
+      background: #000;
+    }
+    .boxes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .particle {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background-color: deepskyblue;
+      animation: moveParticle linear infinite;
+      pointer-events: none;
+    }
+    @keyframes moveParticle {
+      0% {
+        transform: translateY(0) translateX(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) translateX(calc(-100vw + 100%));
+        opacity: 0;
+      }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+          font-family: 'Times New Roman', Times, serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+       
+      }
+      
+      .card {
+        position: relative;
+        width: 300px;
+        height: 400px;
+        background: #fff;
+        border-radius: 10px;
+        background: rgb(255, 255, 255);
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(15px);
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+        
+      }
+      .card1 {
+        position: relative;
+        width: 300px;
+        height: 400px;
+        background: #fff;
+        border-radius: 10px;
+        background: rgb(252, 252, 252);
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(15px);
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+        right: 0;
+        margin-left: 100px;
+        
+      }
+      .card2 {
+        position: relative;
+        width: 300px;
+        height: 400px;
+        background: #fff;
+        border-radius: 10px;
+        background: rgb(252, 252, 252);
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(15px);
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+        right: 0;
+        margin-left: 100px;
+      }
+      /* .card3 {
+        position: relative;
+        width: 300px;
+        height: 400px;
+        background: #fff;
+        border-radius: 10px;
+        background: rgb(255, 255, 255);
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(15px);
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+        margin-left: 100px;
+        
+        
+      }
+      .card4{
+        position: relative;
+        width: 300px;
+        height: 400px;
+        background: #fff;
+        border-radius: 10px;
+        background: rgb(252, 252, 252);
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(15px);
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+        right: 0;
+        margin-left: 100px;
+        
+      }
+      .card5 {
+        position: relative;
+        width: 300px;
+        height: 400px;
+        background: #fff;
+        border-radius: 10px;
+        background: rgb(252, 252, 252);
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(15px);
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+        right: 0;
+        margin-left: 100px;
+        margin-left: 100px;
+        margin-top: 100%;
+      } */
+      
+      
+      .img-bx {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+        transform: translateY(30px) scale(0.5);
+        transform-origin: top;
+      }
+      
+      .img-bx img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .content {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        padding-bottom: 30px;
+      }
+      
+      .content .detail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .content .detail h2 {
+        color: #444;
+        font-size: 1.6em;
+        font-weight: bolder;
+      }
+      
+      .content .detail h2 span {
+        font-size: 0.7em;
+        color: #ffffff;
+        font-weight: bold;
+      }
+      
+      .sci {
+        position: relative;
+        display: flex;
+        margin-top: 5px;
+      }
+      
+      .sci li {
+        list-style: none;
+        margin: 4px;
+      }
+      
+      .sci li a {
+        width: 45px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background: transparent;
+        font-size: 1.5em;
+        color: #444;
+        text-decoration: none;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        transition: 0.5s;
+      }
+      
+      .sci li.t a:hover {
+        background: #498fd0;
+        color: #fff;
+      }
+      .sci li a:hover {
+        background: #3b5998;
+        color: #fff;
+      }
+      .sci li.w  a:hover {
+        background: #78c639;
+        color: #fff;
+      }
+        
+    </style>
+</head>
+<body>
+    <header>
+            <div class="user-info">
+                <img src="path/to/user-image.jpg" alt="User Image">
+                <span class="username" sec:authentication="principal.username">John Doe</span>
+            </div>
+            <div class="logo">
+                <img src="/Users/moayadzho/Desktop/logo.png" alt="Logo">
+            </div>
+    </header>
+    
+
+
+
+
+    <main>
+        <div class="wrapper">
+            <div class="boxes"></div>
+        </div>
+    
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+            const particleContainer = document.querySelector('.boxes');
+    
+            const createParticle = () => {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * window.innerWidth + 'px';
+                particle.style.top = Math.random() * window.innerHeight + 'px';
+                particle.style.animationDuration = Math.random() * 2 + 1 + 's';
+                particleContainer.appendChild(particle);
+    
+                particle.addEventListener('animationend', () => {
+                particle.remove();
+                });
+            };
+    
+            const spawnParticles = () => {
+                setInterval(createParticle, 500);
+            };
+    
+            spawnParticles();
+            });
+        </script>
+    </main>
+
+
+
+    
+      
+      
+    <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>card</title>
+    <link rel="stylesheet" href="./Profile-card.css" />
+    <script
+      src="https://kit.fontawesome.com/66aa7c98b3.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="card">
+      <div class="img-bx">
+        <img src="https://i.postimg.cc/dQ7zWbS5/img-4.jpg" alt="img" />
+      </div>
+      <div class="content">
+        <div class="detail">
+          <h2>Emilia Roy<br /><span>Senior Designer</span></h2>
+          <element class="sci">
+            <li class="f">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </li>
+            <li class="w">
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </li>
+            <li class="t">
+              <a href="#"><i class="fab fa-telegram"></i></a>
+            </li>
+           
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card1">
+      <div class="img-bx">
+        <img src="https://i.postimg.cc/dQ7zWbS5/img-4.jpg" alt="img" />
+      </div>
+      <div class="content">
+        <div class="detail">
+          <h2>Emilia Roy<br /><span>Senior Designer</span></h2>
+          <element class="sci">
+            <li class="f">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </li>
+            <li class="w">
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </li>
+            <li class="t">
+              <a href="#"><i class="fab fa-telegram"></i></a>
+            </li>
+           
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card2">
+      <div class="img-bx">
+        <img src="https://i.postimg.cc/dQ7zWbS5/img-4.jpg" alt="img" />
+      </div>
+      <div class="content">
+        <div class="detail">
+          <h2>Emilia Roy<br /><span>Senior Designer</span></h2>
+          <element class="sci">
+            <li class="f">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </li>
+            <li class="w">
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </li>
+            <li class="t">
+              <a href="#"><i class="fab fa-telegram"></i></a>
+            </li>
+           
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
+</body>
+</html>

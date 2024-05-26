@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Service</title>
+    <link rel="stylesheet" href="serves.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <h1>Customer Service</h1>
+    </header>
+
+    <main>
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <ul>
+                <li>
+                    <h3>How can I track my order?</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget efficitur turpis.</p>
+                </li>
+                <li>
+                    <h3>What is your return policy?</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget efficitur turpis.</p>
+                </li>
+                <li>
+                    <h3>How do I contact customer support?</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget efficitur turpis.</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="contact-section">
+            <h2>Contact Us</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Customer Service. All rights reserved.</p>
+    </footer>
+<style>
+    /* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.faq-section, .contact-section {
+    background-color: #fff;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #666;
+    margin-bottom: 5px;
+}
+
+p {
+    color: #777;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+footer {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const settingsIcon = document.querySelector('.settings');
+    const menu = document.querySelector('.menu');
+
+    settingsIcon.addEventListener('click', function() {
+        menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+    });
+});
+
+</script>
+</body>
+</html>
